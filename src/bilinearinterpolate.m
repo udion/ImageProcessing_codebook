@@ -10,6 +10,8 @@ C_ = newParams(2);
 sR = R/R_;
 sC = C/C_;
 
+%cf, rf have the dimension R_ * C_
+%and so is everything else derived from that
 [cf,rf] = meshgrid(1:C_, 1:R_);
 cf = cf*sC;
 rf = rf*sR;
@@ -34,7 +36,9 @@ oImg = zeros(R_,C_,n_chals);
 oImg = cast(oImg, class(iImg));
 
 for i=1:n_chals
-    chanI = iImg(:,:,i);
+    %typecasting the pixel value to double 
+    %originally will be in uint8 type
+    chanI = double(iImg(:,:,i));
     
     tmp = chanI(iInd1).*(1-d_r).*(1-d_c) + ...
         chanI(iInd2).*(d_r).*(1-d_c) + ...

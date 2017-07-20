@@ -1,4 +1,4 @@
-function [ oImg ] = bilinearinterpolate(iImg, newParams)
+function [ oImg ] = bilinearInterpolate(iImg, newParams)
 %BILINEARINTERPOLATE Summary of this function goes here
 % to do a bilinear interpolation on image matrix
 R = size(iImg,1);
